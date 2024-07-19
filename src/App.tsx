@@ -14,13 +14,17 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   })
 
-  function handleScroll(event: React.WheelEvent) {
+  function handleScroll(event: WheelEvent) {
     if (!projectsRef.current) return;
     const bounds = projectsRef.current!.getBoundingClientRect();
     //console.log(bounds.top)
+
+    console.log(event)
     if (Math.floor(viewportPos) === Math.floor(bounds.top)) {
-      if (event.deltaX > 0) {
+      document.body.style.overflow = "hidden";
+      if (event.deltaY < 0) {
         setDivPos(divPos-40);
+        if (divPos <= -300) document.body.style.overflow = "auto";
       } else setDivPos(divPos+40);
 
     }
@@ -56,7 +60,7 @@ function App() {
 
         Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus sem urna, dapibus sit amet dapibus quis, condimentum at leo. Donec at luctus nibh, a iaculis leo. Pellentesque vel nibh non dui dignissim vehicula laoreet semper ipsum. Duis volutpat non odio vitae consequat. Proin vulputate purus quis tortor lacinia, et accumsan mi tincidunt. Vivamus euismod arcu in pretium bibendum. Vivamus ultrices tellus nec eros ultrices ultrices. Donec turpis felis, fringilla in nulla laoreet, vehicula ultricies ipsum. Aenean vestibulum porttitor ante, eu fringilla elit lacinia quis. Integer eu feugiat urna. Nulla eget sem est. Sed in interdum lorem, sit amet vulputate neque.
       </p>
-      <h1 className={styles.title} ref={projectsRef}>Projects</h1>
+      <h1 className={styles.title} id="projectsHeader" ref={projectsRef}>Projects</h1>
       <div style={{ position: "sticky", top: "25vh" }}>
         <div style={{ right: divPos }} className={styles.project}></div>
       </div>
