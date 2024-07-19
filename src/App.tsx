@@ -1,22 +1,30 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import styles from "./App.module.css"
 import Header from "./Header.tsx";
 import Projects from "./Projects.tsx";
 
 
 function App() {
+  const viewportPos = (window.innerHeight/100)*40;
   const projectsRef = useRef<HTMLHeadingElement>(null);
-  //document.getElementById("root")!.addEventListener('wheel', handleScroll);
+  const [divPos, setDivPos] = useState(-300);
 
   useEffect(() => {
     window.addEventListener('wheel', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   })
 
-  function handleScroll() {
+  function handleScroll(event: React.WheelEvent) {
     if (!projectsRef.current) return;
     const bounds = projectsRef.current!.getBoundingClientRect();
-    console.log(bounds.top)
+    //console.log(bounds.top)
+    if (Math.floor(viewportPos) === Math.floor(bounds.top)) {
+      if (event.deltaX > 0) {
+        setDivPos(divPos-40);
+      } else setDivPos(divPos+40);
+
+    }
+
   }
 
   return (
@@ -49,6 +57,10 @@ function App() {
         Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus sem urna, dapibus sit amet dapibus quis, condimentum at leo. Donec at luctus nibh, a iaculis leo. Pellentesque vel nibh non dui dignissim vehicula laoreet semper ipsum. Duis volutpat non odio vitae consequat. Proin vulputate purus quis tortor lacinia, et accumsan mi tincidunt. Vivamus euismod arcu in pretium bibendum. Vivamus ultrices tellus nec eros ultrices ultrices. Donec turpis felis, fringilla in nulla laoreet, vehicula ultricies ipsum. Aenean vestibulum porttitor ante, eu fringilla elit lacinia quis. Integer eu feugiat urna. Nulla eget sem est. Sed in interdum lorem, sit amet vulputate neque.
       </p>
       <h1 className={styles.title} ref={projectsRef}>Projects</h1>
+      <div style={{ position: "sticky", top: "25vh" }}>
+        <div style={{ right: divPos }} className={styles.project}></div>
+      </div>
+
       <Projects />
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper ipsum feugiat velit ornare feugiat. In placerat lacus eu libero ornare, sed malesuada justo porttitor. Proin commodo erat sed ligula ultricies, ac congue lorem blandit. Vivamus libero quam, aliquet tempor risus sit amet, condimentum vulputate ligula. Nunc posuere, ipsum vel venenatis sollicitudin, enim sapien congue nisi, eget lacinia est magna nec metus. Duis fermentum semper luctus. Sed sem ex, lacinia sed sollicitudin eget, sollicitudin eget nisl. Donec convallis sem nec iaculis venenatis. Maecenas lorem dui, eleifend eu dolor et, pretium dictum eros. Vestibulum tristique gravida purus, non tempus sapien accumsan eget. Donec tristique, odio vel sollicitudin bibendum, neque arcu elementum felis, vel finibus elit magna et tellus. Ut vehicula purus vitae est ultrices venenatis. Aenean at nisl id purus ullamcorper faucibus. Maecenas sit amet diam lorem. Vivamus rhoncus diam sed euismod malesuada.
 
