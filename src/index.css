@@ -1,5 +1,11 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background-color: black;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 #root {
