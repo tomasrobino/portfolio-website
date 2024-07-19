@@ -1,0 +1,14 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerLink {
+    padding: 0 1em;
+    color: gray;
+    font-size: 1em;
+}
+
+.headerLink:hover {
+    color: white;
+}
