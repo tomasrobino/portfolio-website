@@ -1,13 +1,10 @@
-import React, {useEffect, useRef, useState} from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, {useRef} from 'react'
 import styles from "./App.module.css"
 import Header from "./Header.tsx";
 import Projects from "./Projects.tsx";
 
 
 function App() {
-  //const [projectsToTop, setProjectsToTop] = useState(0)
   const projectsRef = useRef<HTMLHeadingElement>(null);
   document.getElementById("root")!.addEventListener('wheel', handleScroll);
 
@@ -19,8 +16,10 @@ function App() {
   return (
     <div className={styles.app}>
       <Header />
-      <h1 className={styles.title} ref={projectsRef}>Projects</h1>
-      <Projects />
+      <section>
+        <h1 className={styles.title} ref={projectsRef}>Projects</h1>
+        <Projects />
+      </section>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper ipsum feugiat velit ornare feugiat. In placerat lacus eu libero ornare, sed malesuada justo porttitor. Proin commodo erat sed ligula ultricies, ac congue lorem blandit. Vivamus libero quam, aliquet tempor risus sit amet, condimentum vulputate ligula. Nunc posuere, ipsum vel venenatis sollicitudin, enim sapien congue nisi, eget lacinia est magna nec metus. Duis fermentum semper luctus. Sed sem ex, lacinia sed sollicitudin eget, sollicitudin eget nisl. Donec convallis sem nec iaculis venenatis. Maecenas lorem dui, eleifend eu dolor et, pretium dictum eros. Vestibulum tristique gravida purus, non tempus sapien accumsan eget. Donec tristique, odio vel sollicitudin bibendum, neque arcu elementum felis, vel finibus elit magna et tellus. Ut vehicula purus vitae est ultrices venenatis. Aenean at nisl id purus ullamcorper faucibus. Maecenas sit amet diam lorem. Vivamus rhoncus diam sed euismod malesuada.
 
         Donec dignissim nec urna eget molestie. Donec placerat lacinia urna sit amet luctus. Morbi in sem vulputate, ultricies nisl ac, pharetra massa. Aliquam sed nisl eu sem pellentesque porta eu non lorem. Duis imperdiet, diam quis vulputate rhoncus, felis risus gravida leo, laoreet commodo diam ante ut ante. Mauris imperdiet vestibulum dictum. Vestibulum vehicula sit amet purus nec gravida.
