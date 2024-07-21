@@ -1,23 +1,12 @@
-.card {
-    position: absolute;
-    right: -450px;
-    width: 40vw;
-    height: 60vh;
-}
-
-.cardHeader {
-
-}
-
 .cardMedia {
     height: 40vh;
 }
 
 .titleNDesc {
-    position: absolute;
-    bottom: -10vh;
-    right: -15vw;
-    background-color: rgba(0,0,0,0.2);
+    position: relative;
+    bottom: 20vh;
+    right: -20vw;
+    background-color: rgba(0,0,0,0.4);
     width: 30vw;
     border-radius: 20px;
     color: lightgray;
@@ -28,4 +17,10 @@
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
+}
+
+.proj {
+    width: 40vw;
+    height: 60vh;
+    margin-right: 60vw;
 }
