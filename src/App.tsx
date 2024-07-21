@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('wheel', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll as (ev: Event) => void);
+    return () => window.removeEventListener('wheel', handleScroll as (ev: Event) => void);
   })
 
   function handleScroll(event: WheelEvent) {
