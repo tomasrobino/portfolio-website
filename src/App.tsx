@@ -8,6 +8,7 @@ function App() {
   const viewportPos = (window.innerHeight/100)*40;
   const projectGroupRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLHeadingElement>(null);
+  const offsetRef = useRef(0);
   const [divPos, setDivPos] = useState(0);
 
   useEffect(() => {
@@ -16,6 +17,7 @@ function App() {
     const res = "-" + (( children[0].getBoundingClientRect().width + parseFloat(getComputedStyle(children[0]).marginRight) ) * children.length).toString() + "px";
     projectGroupRef.current.style.right = res;
     setDivPos(parseFloat(res))
+    offsetRef.current = parseFloat(res);
   }, [])
 
   useEffect(() => {
@@ -30,7 +32,7 @@ function App() {
       document.body.style.overflow = "hidden";
       if (event.deltaY < 0) {
         setDivPos(divPos-80);
-        if (divPos <= -5000) document.body.style.overflow = "auto";
+        if (divPos <= offsetRef.current) document.body.style.overflow = "auto";
       } else setDivPos(divPos+80);
     }
   }
