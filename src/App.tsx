@@ -9,7 +9,7 @@ function App() {
     <div className={styles.app}>
       <Header />
       <div style={{ backgroundColor: "black", height: "200vh" }}></div>
-        <ProjectGroup />
+      <ProjectGroup />
       <div style={{ backgroundColor: "black", height: "200vh" }}></div>
     </div>
   )
