@@ -1,6 +1,6 @@
-import styles from "./App.module.css";
 import ProjectUnit from "./ProjectUnit.tsx";
 import React from "react";
+import styles from "./ProjectGroup.module.css"
 
 export default function ProjectGroup() {
   return (

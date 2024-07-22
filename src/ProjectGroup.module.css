@@ -1,6 +1,6 @@
 .title {
-    position: sticky;
-    top: 40vh;
+    position: relative;
+    top: 35vh;
     color: white;
 }
 
