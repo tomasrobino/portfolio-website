@@ -1,8 +1,8 @@
-import styles from "./Project.module.css";
+import styles from "./ProjectUnit.module.css";
 import React from "react";
 import {Card, CardContent, CardHeader, CardMedia} from "@mui/material";
 
-export default function Project(props: { title: string, image: string, description: string }) {
+export default function ProjectUnit(props: { title: string, image: string, description: string }) {
   return (
     <div className={styles.proj}>
       <img src={props.image} alt={props.title} className={styles.img}/>

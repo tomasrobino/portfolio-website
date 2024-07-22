@@ -1,16 +1,3 @@
 .app {
     text-align: center;
 }
-
-.title {
-    position: sticky;
-    top: 40vh;
-    color: white;
-}
-
-.cardGroup {
-    position: absolute;
-    height: 60vh;
-    width: fit-content;
-    display: flex;
-}
