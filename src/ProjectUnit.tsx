@@ -1,6 +1,5 @@
 import styles from "./ProjectUnit.module.css";
 import React from "react";
-import {Card, CardContent, CardHeader, CardMedia} from "@mui/material";
 
 export default function ProjectUnit(props: { title: string, image: string, description: string }) {
   return (
